@@ -1,4 +1,4 @@
-import { validateConfig, Environment } from '@libs/common';
+import { Environment, validateConfig } from '@libs/common';
 import { registerAs } from '@nestjs/config';
 import { Expose } from 'class-transformer';
 import { IsEnum, IsPort } from 'class-validator';

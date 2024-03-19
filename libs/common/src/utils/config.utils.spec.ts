@@ -1,7 +1,8 @@
 import 'reflect-metadata'; // https://github.com/nestjs/nest/issues/1305#issuecomment-440697498
 
 import { Expose } from 'class-transformer';
-import { IsNumber, IsBoolean } from 'class-validator';
+import { IsBoolean, IsNumber } from 'class-validator';
+
 import { validateConfig } from './config.utils';
 
 class MockConfig {
