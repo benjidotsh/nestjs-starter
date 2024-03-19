@@ -1,5 +1,6 @@
 import { ValidationPipe, VersioningType } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import helmet from 'helmet';
 import {
   utilities as nestWinstonModuleUtilities,
   WinstonModule,
@@ -48,6 +49,12 @@ async function bootstrap() {
       transform: true,
     }),
   );
+
+  // Security
+  app.use(helmet());
+  app.enableCors({
+    origin: _appConfig.allowedOrigins || '*',
+  });
 
   await app.listen(_appConfig.port);
 }
