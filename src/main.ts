@@ -1,5 +1,7 @@
+import { Environment } from '@libs/common';
 import { ValidationPipe, VersioningType } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import helmet from 'helmet';
 import {
   utilities as nestWinstonModuleUtilities,
@@ -51,12 +53,21 @@ async function bootstrap() {
   );
 
   // Security
-  app.use(helmet());
+  app.use(helmet({ contentSecurityPolicy: false }));
   app.enableCors({
     origin: _appConfig.allowedOrigins || '*',
   });
 
+  // Swagger
+  if (_appConfig.environment !== Environment.Production) {
+    const config = new DocumentBuilder().setTitle(APP_NAME).build();
+    const document = SwaggerModule.createDocument(app, config);
+    SwaggerModule.setup('/', app, document);
+  }
+
   await app.listen(_appConfig.port);
+
+  logger.info(`Server running on port ${_appConfig.port}`);
 }
 
 bootstrap();
