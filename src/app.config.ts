@@ -1,7 +1,13 @@
 import { Environment, LogLevel, validateConfig } from '@libs/common';
 import { registerAs } from '@nestjs/config';
 import { Expose, Transform } from 'class-transformer';
-import { IsEnum, IsOptional, IsPort, IsString } from 'class-validator';
+import {
+  IsEnum,
+  IsNumber,
+  IsOptional,
+  IsPort,
+  IsString,
+} from 'class-validator';
 
 export class AppConfig {
   @Expose({ name: 'NODE_ENV' })
@@ -21,6 +27,14 @@ export class AppConfig {
   @IsOptional()
   @Transform(({ value }) => value.split(','))
   allowedOrigins?: string[];
+
+  @Expose({ name: 'REQUESTS_PER_MINUTE' })
+  @IsNumber()
+  requestsPerMinute: number = 100;
+
+  @Expose({ name: 'REDIS_URL' })
+  @IsString()
+  redisUrl: string;
 }
 
 export const appConfig = registerAs('app', () => validateConfig(AppConfig));
