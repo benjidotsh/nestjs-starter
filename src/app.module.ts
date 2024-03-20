@@ -5,8 +5,6 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { ThrottlerStorageRedisService } from 'nestjs-throttler-storage-redis';
 
 import { AppConfig, appConfig } from './app.config';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 
 @Module({
   imports: [
@@ -27,10 +25,8 @@ import { AppService } from './app.service';
       inject: [appConfig.KEY],
     }),
   ],
-  controllers: [AppController],
   providers: [
     Logger,
-    AppService,
     {
       provide: APP_GUARD,
       useClass: ThrottlerGuard,

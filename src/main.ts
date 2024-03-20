@@ -36,6 +36,7 @@ async function bootstrap() {
       instance: logger,
     }),
   });
+
   const _appConfig: AppConfig = await app.get(appConfig.KEY);
 
   // Versioning
