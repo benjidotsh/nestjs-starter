@@ -39,7 +39,7 @@ async function bootstrap() {
 
   const _appConfig: AppConfig = await app.get(appConfig.KEY);
 
-  // Versioning
+  // API versioning
   app.enableVersioning({
     type: VersioningType.URI,
     defaultVersion: '1',
