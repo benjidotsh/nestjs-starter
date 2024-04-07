@@ -1,3 +1,5 @@
+// when adding models, make sure to update the soft delete extension in libs/prisma/src/prisma.service.ts as well
+
 generator client {
   provider = "prisma-client-js"
 }

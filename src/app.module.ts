@@ -1,3 +1,4 @@
+import { PrismaModule } from '@libs/prisma';
 import { Logger, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
@@ -24,6 +25,7 @@ import { AppConfig, appConfig } from './app.config';
       }),
       inject: [appConfig.KEY],
     }),
+    PrismaModule,
   ],
   providers: [
     Logger,
