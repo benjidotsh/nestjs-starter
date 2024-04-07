@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 
 name: nestjs_starter
 
@@ -6,5 +6,16 @@ services:
   redis:
     container_name: nestjs_starter_redis
     image: redis:7-alpine
+    restart: unless-stopped
     ports:
       - 6379:6379
+
+  postgres:
+    container_name: nestjs_starter_postgres
+    image: postgres:16-alpine
+    restart: unless-stopped
+    shm_size: 128mb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: nestjs_starter
