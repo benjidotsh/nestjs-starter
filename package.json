@@ -21,7 +21,11 @@
     "setup:dev": "docker compose -f docker-compose.dev.yml up -d",
     "db:deploy": "prisma migrate deploy",
     "db:migrate": "prisma migrate dev",
-    "db:reset": "prisma migrate reset --force"
+    "db:reset": "prisma migrate reset --force",
+    "db:seed": "prisma db seed"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seeds"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",

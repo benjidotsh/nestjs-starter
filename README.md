@@ -40,10 +40,10 @@ $ pnpm run setup:dev
 
 This will set up a [Redis](https://redis.io) and a [PostgreSQL](https://www.postgresql.org) database.
 
-Now we need to create the database:
+Now we need to initialize the database:
 
 ```bash
-$ pnpm run db:deploy
+$ pnpm run db:reset
 ```
 
 ## Running the app
@@ -78,10 +78,13 @@ $ pnpm run test:cov
 # apply pending migrations (and create the database if it doesn't exist)
 $ pnpm run db:deploy
 
+# seed the database
+$ pnpm run db:seed
+
 # generate a new migration
 $ pnpm run db:migrate
 
-# reset the database
+# reset the database (also applies migrations and seeds)
 $ pnpm run db:reset
 ```
 
