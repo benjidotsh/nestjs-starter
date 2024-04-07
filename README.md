@@ -11,6 +11,7 @@ nestjs-starter is a production-ready NestJS boilerplate that contains everything
 - Swagger
 - Request validation
 - API versioning
+- Database integration ([Prisma](https://www.prisma.io))
 
 ### Security
 
@@ -37,7 +38,13 @@ We use [Docker Desktop](https://www.docker.com/products/docker-desktop) to set u
 $ pnpm run setup:dev
 ```
 
-This will set up a [Redis](https://redis.io) database that will be used for rate limiting.
+This will set up a [Redis](https://redis.io) and a [PostgreSQL](https://www.postgresql.org) database.
+
+Now we need to create the database:
+
+```bash
+$ pnpm run db:deploy
+```
 
 ## Running the app
 
@@ -63,6 +70,19 @@ $ pnpm run test:e2e
 
 # test coverage
 $ pnpm run test:cov
+```
+
+## Database
+
+```bash
+# apply pending migrations (and create the database if it doesn't exist)
+$ pnpm run db:deploy
+
+# generate a new migration
+$ pnpm run db:migrate
+
+# reset the database
+$ pnpm run db:reset
 ```
 
 ## Contributing
