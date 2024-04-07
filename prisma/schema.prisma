@@ -15,7 +15,7 @@ model Todo {
   updatedAt DateTime @updatedAt
   deleted   Boolean  @default(false)
 
-  description String  @unique
+  description String
   completed   Boolean @default(false)
 
   @@map("todos")

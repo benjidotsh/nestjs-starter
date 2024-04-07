@@ -6,6 +6,7 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { ThrottlerStorageRedisService } from 'nestjs-throttler-storage-redis';
 
 import { AppConfig, appConfig } from './app.config';
+import { TodosModule } from './todos/todos.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { AppConfig, appConfig } from './app.config';
       inject: [appConfig.KEY],
     }),
     PrismaModule,
+    TodosModule,
   ],
   providers: [
     Logger,

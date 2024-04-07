@@ -9,6 +9,3 @@ CREATE TABLE "todos" (
 
     CONSTRAINT "todos_pkey" PRIMARY KEY ("id")
 );
-
--- CreateIndex
-CREATE UNIQUE INDEX "todos_description_key" ON "todos"("description");
