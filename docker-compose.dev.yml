@@ -5,15 +5,13 @@ name: nestjs_starter
 services:
   redis:
     container_name: nestjs_starter_redis
-    image: redis:7-alpine
-    restart: unless-stopped
+    image: redis:7.2-alpine
     ports:
       - 6379:6379
 
   postgres:
     container_name: nestjs_starter_postgres
-    image: postgres:16-alpine
-    restart: unless-stopped
+    image: postgres:17-alpine
     shm_size: 128mb
     environment:
       POSTGRES_USER: postgres
