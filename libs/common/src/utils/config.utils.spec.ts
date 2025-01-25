@@ -35,13 +35,13 @@ describe('config.util.ts', () => {
     it("should throw an error if the types don't match and are not explicitly convertable", () => {
       process.env = { ...process.env, FOO: 'string' };
 
-      expect(() => validateConfig(MockConfig)).toThrowError();
+      expect(() => validateConfig(MockConfig)).toThrow();
     });
 
     it('should throw an error if a required property is not present', () => {
       process.env = { ...process.env, BAR: 'false' };
 
-      expect(() => validateConfig(MockConfig)).toThrowError();
+      expect(() => validateConfig(MockConfig)).toThrow();
     });
   });
 });
