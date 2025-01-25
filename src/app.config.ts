@@ -25,7 +25,7 @@ export class AppConfig {
   @Expose({ name: 'ALLOWED_ORIGINS' })
   @IsString({ each: true })
   @IsOptional()
-  @Transform(({ value }) => value.split(','))
+  @Transform(({ value }: { value: string }) => value.split(','))
   allowedOrigins?: string[];
 
   @Expose({ name: 'REQUESTS_PER_MINUTE' })

@@ -71,4 +71,4 @@ async function bootstrap() {
   logger.info(`Server running on port ${_appConfig.port}`);
 }
 
-bootstrap();
+void bootstrap();

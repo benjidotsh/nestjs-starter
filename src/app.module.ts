@@ -1,9 +1,9 @@
 import { PrismaModule } from '@libs/prisma';
+import { ThrottlerStorageRedisService } from '@nest-lab/throttler-storage-redis';
 import { Logger, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
-import { ThrottlerStorageRedisService } from '@nest-lab/throttler-storage-redis';
 
 import { AppConfig, appConfig } from './app.config';
 import { TodosModule } from './todos/todos.module';
