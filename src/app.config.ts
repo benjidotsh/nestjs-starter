@@ -32,9 +32,9 @@ export class AppConfig {
   @IsNumber()
   requestsPerMinute: number = 100;
 
-  @Expose({ name: 'REDIS_URL' })
+  @Expose({ name: 'VALKEY_URL' })
   @IsString()
-  redisUrl: string;
+  valkeyUrl: string;
 }
 
 export const appConfig = registerAs('app', () => validateConfig(AppConfig));

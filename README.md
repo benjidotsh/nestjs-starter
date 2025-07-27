@@ -38,7 +38,7 @@ We use [Docker Desktop](https://www.docker.com/products/docker-desktop) to set u
 $ pnpm run setup:dev
 ```
 
-This will set up a [Redis](https://redis.io) and a [PostgreSQL](https://www.postgresql.org) database.
+This will set up a [Valkey](https://valkey.io) and a [PostgreSQL](https://www.postgresql.org) database.
 
 Now we need to initialize the database:
 

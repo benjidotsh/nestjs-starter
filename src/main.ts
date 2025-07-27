@@ -22,7 +22,7 @@ async function bootstrap() {
         format: winston.format.combine(
           winston.format.timestamp(),
           winston.format.ms(),
-          nestWinstonModuleUtilities.format.nestLike(APP_NAME, {
+          nestWinstonModuleUtilities.format.nestLike(APP_NAME.toLowerCase(), {
             colors: true,
             prettyPrint: true,
           }),

@@ -22,7 +22,7 @@ import { TodosModule } from './todos/todos.module';
             limit: _appConfig.requestsPerMinute,
           },
         ],
-        storage: new ThrottlerStorageRedisService(_appConfig.redisUrl),
+        storage: new ThrottlerStorageRedisService(_appConfig.valkeyUrl),
       }),
       inject: [appConfig.KEY],
     }),
