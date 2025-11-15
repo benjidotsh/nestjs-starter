@@ -5,13 +5,13 @@ name: nestjs_starter
 services:
   valkey:
     container_name: nestjs_starter_valkey
-    image: valkey/valkey:8-alpine
+    image: valkey/valkey:9-alpine
     ports:
       - 6379:6379
 
   postgres:
     container_name: nestjs_starter_postgres
-    image: postgres:17-alpine
+    image: postgres:18-alpine
     shm_size: 128mb
     environment:
       POSTGRES_USER: postgres
